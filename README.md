@@ -12,7 +12,7 @@ Plasma Finder is a very simple mobile application developed in Xamarin(MVVMCross
 
 ## Note
 
-This is not finished app, it's final copy is a licensed one which is a property of CodingMint Pvt. Ltd. Although this copy of code is available to be extended modified for public use.
+This is not the finished app, it's final copy is a licensed one which is a property of CodingMint Pvt. Ltd. Although this copy of code is available to be extended, modified for public use.
 
 ## License
 
