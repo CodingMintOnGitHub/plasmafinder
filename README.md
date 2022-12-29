@@ -10,6 +10,10 @@ Plasma Finder is a very simple mobile application developed in Xamarin(MVVMCross
 
 [![](https://raw.githubusercontent.com/CodingMintOnGitHub/plasmafinder/master/PlasmaFinder/PlasmaFinder/PlasmaFinder/Constants/ss-one.jpeg)]()
 
+## Note
+
+This is not finished app, it's final copy is a licensed one which is a property of CodingMint Pvt. Ltd. Although this copy of code is available to be extended modified for public use.
+
 ## License
 
 MIT
