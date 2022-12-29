@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<d:MvxContentPage
+    xmlns:d="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms" 
+    x:TypeArguments="viewModels:SearchItemViewModel"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cc="clr-namespace:PlasmaFinder.Controls"
+    xmlns:local="clr-namespace:PlasmaFinder.Views"
+    xmlns:behaviors="clr-namespace:PlasmaFinder.Behaviours"
+    xmlns:viewModels="clr-namespace:PlasmaFinder.ViewModels"
+    x:Class="PlasmaFinder.Views.SearchItem"
+    NavigationPage.HasNavigationBar="false">
+	<ContentPage.Content>
+        <Grid HorizontalOptions="FillAndExpand" ColumnSpacing="0" RowSpacing="0" BackgroundColor="Black" VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Image Source="background.png" Margin="0" Aspect="Fill" Grid.Column="0" Grid.Row="0" />
+            <StackLayout BackgroundColor="#FDDA8A" Grid.Column="0" Grid.Row="0" Padding="0,30,0,0" >
+                <Image Source="plasma_prev_ui" HeightRequest="140" Margin="10,0,0,0" Aspect="AspectFit" />
+
+
+                <Button BackgroundColor="#333333" Margin="10,30,10,0" HeightRequest="60" CornerRadius="10" CommandParameter="blood" Command="{Binding ItemTapped}"  HorizontalOptions="FillAndExpand" VerticalOptions="Start" Text="Blood" TextColor="#FDDA8A" FontSize="22" FontFamily="{StaticResource RegularFont}" />
+                <Button BackgroundColor="#333333" Margin="10,30,10,0" HeightRequest="60" CornerRadius="10" CommandParameter="plasma" Command="{Binding ItemTapped}"  HorizontalOptions="FillAndExpand" VerticalOptions="Start" Text="Covid Plasma" TextColor="#FDDA8A" FontSize="22" FontFamily="{StaticResource RegularFont}" />
+                <Button BackgroundColor="#333333" Margin="10,30,10,0" HeightRequest="60" CornerRadius="10" CommandParameter="food" Command="{Binding ItemTapped}"  HorizontalOptions="FillAndExpand" VerticalOptions="Start" Text="Food" TextColor="#FDDA8A" FontSize="22" FontFamily="{StaticResource RegularFont}" />
+                <Button BackgroundColor="#333333" Margin="10,30,10,0" HeightRequest="60" CornerRadius="10" CommandParameter="clothes" Command="{Binding ItemTapped}"  HorizontalOptions="FillAndExpand" VerticalOptions="Start" Text="Clothes" TextColor="#FDDA8A" FontSize="22" FontFamily="{StaticResource RegularFont}" />
+                <Button BackgroundColor="#333333" Margin="10,30,10,50" HeightRequest="60" CornerRadius="10" CommandParameter="oxygen" Command="{Binding ItemTapped}"  HorizontalOptions="FillAndExpand" VerticalOptions="Start" Text="Oxygen" TextColor="#FDDA8A" FontSize="22" FontFamily="{StaticResource RegularFont}" />
+
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+    </d:MvxContentPage>

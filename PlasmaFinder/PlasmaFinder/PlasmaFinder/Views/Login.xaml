@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<d:MvxContentPage
+    xmlns:d="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms" 
+    x:TypeArguments="viewModels:LoginViewModel"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cc="clr-namespace:PlasmaFinder.Controls"
+    xmlns:local="clr-namespace:PlasmaFinder.Views"
+    xmlns:behaviors="clr-namespace:PlasmaFinder.Behaviours"
+    xmlns:viewModels="clr-namespace:PlasmaFinder.ViewModels"
+    x:Class="PlasmaFinder.Views.Login"
+    NavigationPage.HasNavigationBar="false">
+    <ContentPage.Content>
+        <Grid HorizontalOptions="FillAndExpand" ColumnSpacing="0" RowSpacing="0" BackgroundColor="Black" VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Image Source="background.png" Margin="0" Aspect="Fill" Grid.Column="0" Grid.Row="0" />
+            <StackLayout BackgroundColor="#FDDA8A" Grid.Column="0" Grid.Row="0" Padding="0,30,0,0" >
+                <Image Source="plasma_prev_ui" HeightRequest="280" Margin="10,0,0,0" Aspect="AspectFill" />
+
+                <Label Text="Login Via Otp" HorizontalTextAlignment="Center" TextColor="#333333" FontSize="28" FontAttributes="Bold" FontFamily="{StaticResource MediumFont}" />
+
+                <cc:LightEntry  Placeholder="Enter Phone Number" TextColor="#333333" Keyboard="Numeric" MaxLength="10" FontFamily="{StaticResource RegularFont}" ReturnType="Next" Margin="50,50,50,0"/>
+                <BoxView HorizontalOptions="Fill" Margin="50,0,50,0" HeightRequest="1.5" Color="#333333"></BoxView>
+
+                <Button BackgroundColor="#333333" Margin="30,60,30,30" HeightRequest="70" CornerRadius="10" Command="{Binding SendOTPCommand}"  HorizontalOptions="FillAndExpand" VerticalOptions="Start" Text="Send OTP" TextColor="#FDDA8A" FontSize="22" FontFamily="{StaticResource RegularFont}" />
+
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</d:MvxContentPage>

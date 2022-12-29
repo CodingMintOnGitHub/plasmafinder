@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<d:MvxContentPage
+    xmlns:d="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms" 
+    x:TypeArguments="viewModels:BloodDonationListViewModel"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cc="clr-namespace:PlasmaFinder.Controls"
+    xmlns:local="clr-namespace:PlasmaFinder.Views"
+    xmlns:behaviors="clr-namespace:PlasmaFinder.Behaviours"
+    xmlns:viewModels="clr-namespace:PlasmaFinder.ViewModels" 
+    xmlns:converters="clr-namespace:PlasmaFinder.Converters"
+    x:Class="PlasmaFinder.Views.BloodDonationList"
+    NavigationPage.HasNavigationBar="false">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:DatePickerFormatConverter x:Key="datePickerLabelFormatConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0" ColumnSpacing="0" RowSpacing="0" BackgroundColor="Black" VerticalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Image Source="background.png" Margin="0" Aspect="Fill" Grid.Column="0" Grid.Row="0" />
+                <ScrollView Grid.Column="0" Grid.Row="0">
+                    <StackLayout BackgroundColor="#FDDA8A"  Padding="0,30,0,0" >
+                        <Image Source="plasma_prev_ui" HeightRequest="140" Margin="10,0,0,0" Aspect="AspectFit" />
+
+                        <Button  Command="{Binding ToggleFilters}" Text="Filter Donors" FontFamily="{StaticResource MediumFont}" BackgroundColor="#333333" TextColor="#FDDA8A" Margin="20,20,20,50" CornerRadius="3" />
+
+                        <Label Text="List Of Blood Donors" HorizontalTextAlignment="Center" TextColor="#333333" FontSize="28" FontAttributes="Bold" FontFamily="{StaticResource MediumFont}" />
+
+                        <ListView HeightRequest="{Binding ListHeight}" SelectionMode="None" CachingStrategy="RecycleElement" ItemsSource="{Binding BloodDonations}" HasUnevenRows="True">
+                            <ListView.Behaviors>
+                                <behaviors:EventToCommandBehavior EventName="ItemTapped" Command="{Binding BloodDonationTapped}" 
+                                                  EventArgsConverter="{StaticResource LocalItemTappedConverter}" >
+                                </behaviors:EventToCommandBehavior>
+                            </ListView.Behaviors>
+
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <ViewCell.View>
+                                            <Grid BackgroundColor="Transparent" Margin="0,20,0,0" Padding="0,0,0,0" HorizontalOptions="Fill" ColumnSpacing="2" RowSpacing="2" VerticalOptions="Center">
+
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="auto"/>
+                                                    <RowDefinition Height="auto"/>
+                                                    <RowDefinition Height="1"/>
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+                                                <Label Grid.Row="0" Margin="20,0,0,2" Grid.Column="0" TextColor="#333333" FontSize="14" FontAttributes="Bold" FontFamily="{StaticResource MediumFont}"  Text="{Binding BloodDonorName}" HorizontalOptions="StartAndExpand" />
+                                                <Label Grid.Row="0" Margin="0,0,20,2" Grid.Column="1" TextColor="#333333" FontSize="14" FontAttributes="Bold" FontFamily="{StaticResource MediumFont}" Text="{Binding BloodDonorBloodGroup}" HorizontalOptions="EndAndExpand" />
+
+                                                <Label Grid.Row="1" Margin="20,2,0,0" Grid.Column="0" TextColor="#333333" FontSize="14" FontAttributes="Bold" FontFamily="{StaticResource MediumFont}" Text="{Binding BloodDonorCity}" HorizontalOptions="StartAndExpand" />
+                                                <Label Grid.Row="1" Margin="0,2,20,0" Grid.Column="1" TextColor="#333333" FontSize="14" FontAttributes="Bold" FontFamily="{StaticResource MediumFont}" Text="{Binding BloodDonorState}" HorizontalOptions="EndAndExpand" />
+                                                <BoxView  Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="Fill" Margin="10,0,10,0" HeightRequest="1" Color="White"></BoxView>
+                                            </Grid>
+                                        </ViewCell.View>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                </ScrollView>
+            </Grid>
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" IsVisible="{Binding IsFilterVisible}" Grid.Row="0" Grid.Column="0">
+                <StackLayout BackgroundColor="LightGray" Opacity="0.5"></StackLayout>
+                <ScrollView>
+                    <StackLayout Margin="20,30,20,30" HorizontalOptions="FillAndExpand" BackgroundColor="#FDDA8A" VerticalOptions="FillAndExpand">
+
+                        <Label Text="Applied Filters" HorizontalTextAlignment="Center"  TextColor="#333333" FontSize="20"  Margin="0,10,0,20" FontFamily="{StaticResource MediumFont}" />
+
+                        <!--Donor Name-->
+                        <StackLayout Grid.Row="3" Spacing="0" Orientation="Horizontal" Margin="10,10,10,5">
+                            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Spacing="0">
+                                <Label Text="Donor Name" TextColor="#333333" FontSize="16"  Margin="5,0,0,0" FontFamily="{StaticResource MediumFont}" HorizontalOptions="StartAndExpand" VerticalOptions="Center"  />
+                                <cc:LightEntry Placeholder="No Filter" TextColor="#333333" Keyboard="Text" MaxLength="10" FontFamily="{StaticResource RegularFont}" FontSize="14"  Text="{Binding VehicleNoFilterText}" ReturnType="Next" Margin="0,-2,0,5">
+                                    <Entry.Behaviors>
+                                        <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding FilterItems}">
+                                        </behaviors:EventToCommandBehavior>
+                                    </Entry.Behaviors>
+                                </cc:LightEntry>
+                                <BoxView HorizontalOptions="Fill" Margin="3,0,3,5" HeightRequest="1" Color="#333333"></BoxView>
+                            </StackLayout>
+                            <ImageButton CornerRadius="20" Command="{Binding ClearFilterCommand}" CommandParameter="vehiclenumber" BackgroundColor="Transparent" Source="clear" Padding="10" HeightRequest="40" Margin="10,15,0,0" VerticalOptions="Center" HorizontalOptions="End">
+                                <ImageButton.Triggers>
+                                    <Trigger TargetType="ImageButton" Property="IsPressed" Value="True">
+                                        <Setter Property="BackgroundColor"  Value="LightGray" />
+                                    </Trigger>
+                                </ImageButton.Triggers>
+                            </ImageButton>
+                        </StackLayout>
+
+                        <!--Donor Pincode-->
+                        <StackLayout Grid.Row="3" Spacing="0" Orientation="Horizontal" Margin="10,10,10,5">
+                            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Spacing="0">
+                                <Label Text="Donor Pincode" TextColor="#333333" FontSize="16"  Margin="5,0,0,0" FontFamily="{StaticResource MediumFont}" HorizontalOptions="StartAndExpand" VerticalOptions="Center"  />
+                                <cc:LightEntry Placeholder="No Filter" TextColor="#333333" Keyboard="Text" MaxLength="10" FontFamily="{StaticResource RegularFont}" FontSize="14"  Text="{Binding VehicleNoFilterText}" ReturnType="Next" Margin="0,-2,0,5">
+                                    <Entry.Behaviors>
+                                        <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding FilterItems}">
+                                        </behaviors:EventToCommandBehavior>
+                                    </Entry.Behaviors>
+                                </cc:LightEntry>
+                                <BoxView HorizontalOptions="Fill" Margin="3,0,3,5" HeightRequest="1" Color="#333333"></BoxView>
+                            </StackLayout>
+                            <ImageButton CornerRadius="20" Command="{Binding ClearFilterCommand}" CommandParameter="pincode" BackgroundColor="Transparent" Source="clear" Padding="10" HeightRequest="40" Margin="10,15,0,0" VerticalOptions="Center" HorizontalOptions="End">
+                                <ImageButton.Triggers>
+                                    <Trigger TargetType="ImageButton" Property="IsPressed" Value="True">
+                                        <Setter Property="BackgroundColor"  Value="LightGray" />
+                                    </Trigger>
+                                </ImageButton.Triggers>
+                            </ImageButton>
+                        </StackLayout>
+
+                        <!--Donor State-->
+                        <StackLayout Margin="10,10,10,5" Spacing="0">
+                            <Label Text="Donor State" TextColor="#333333" FontSize="16" FontFamily="{StaticResource MediumFont}"  Margin="5,0,0,0" HorizontalOptions="StartAndExpand" VerticalOptions="Center"  />
+                            <StackLayout Orientation="Horizontal" >
+                                <StackLayout Margin="0,5,0,0" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding SelectListItem}" CommandParameter="vehicleType" />
+                                        </StackLayout.GestureRecognizers>
+                                        <Label Text="{Binding DonorStateFilterText}"  FontFamily="{StaticResource RegularFont}" FontSize="14" TextColor="#333333" Margin="5,0,0,0" HorizontalOptions="StartAndExpand" VerticalOptions="Center"  />
+                                        <Image Source="down_arrow" HeightRequest="8" Margin="0,0,5,0" VerticalOptions="Center" HorizontalOptions="EndAndExpand" />
+                                    </StackLayout>
+                                    <BoxView HorizontalOptions="Fill" Margin="3,0,3,0" HeightRequest="1" Color="#333333"></BoxView>
+                                </StackLayout>
+                                <ImageButton CornerRadius="20" Command="{Binding ClearFilterCommand}" CommandParameter="state" BackgroundColor="Transparent" Source="clear" Padding="10" HeightRequest="40" Margin="5,0,0,0" VerticalOptions="Center" HorizontalOptions="End">
+                                    <ImageButton.Triggers>
+                                        <Trigger TargetType="ImageButton" Property="IsPressed" Value="True">
+                                            <Setter Property="BackgroundColor"  Value="LightYellow" />
+                                        </Trigger>
+                                    </ImageButton.Triggers>
+                                </ImageButton>
+                            </StackLayout>
+                        </StackLayout>
+
+                        <!--Donor DOB-->
+                        <StackLayout Margin="10,10,10,5" Spacing="0">
+                            <Label Text="Donor Date of Birth" TextColor="#333333" FontSize="16"  FontFamily="{StaticResource MediumFont}" Margin="5,0,0,0" HorizontalOptions="StartAndExpand" VerticalOptions="Center"  />
+                            <StackLayout Orientation="Horizontal" >
+                                <StackLayout Margin="0,5,0,0" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                        <Grid HorizontalOptions="FillAndExpand">
+                                            <Label Text="{Binding DonorDOB,Converter={StaticResource datePickerLabelFormatConverter}}" FontFamily="{StaticResource RegularFont}" FontSize="14" TextColor="#333333" Margin="5,0,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="Center"  />
+                                            <cc:BlankDatePicker TextColor="Transparent" Date="{Binding CreatedDateFilterText,Mode=TwoWay}" HorizontalOptions="FillAndExpand" >
+                                                <DatePicker.Format>dd-MM-yyyy</DatePicker.Format>
+                                            </cc:BlankDatePicker>
+                                        </Grid>
+                                        <Image Source="down_arrow" HeightRequest="8" Margin="0,0,5,0" VerticalOptions="Center" HorizontalOptions="EndAndExpand" />
+                                    </StackLayout>
+                                    <BoxView HorizontalOptions="Fill" Margin="3,0,3,0" HeightRequest="1" Color="#333333"></BoxView>
+                                </StackLayout>
+                                <ImageButton CornerRadius="20" Command="{Binding ClearFilterCommand}" CommandParameter="createddate" BackgroundColor="Transparent" Source="clear" Padding="10" HeightRequest="40" Margin="5,0,0,0" VerticalOptions="Center" HorizontalOptions="End">
+                                    <ImageButton.Triggers>
+                                        <Trigger TargetType="ImageButton" Property="IsPressed" Value="True">
+                                            <Setter Property="BackgroundColor"  Value="LightGray" />
+                                        </Trigger>
+                                    </ImageButton.Triggers>
+                                </ImageButton>
+                            </StackLayout>
+                        </StackLayout>
+
+                        <!--Donor Aadhar-->
+                        <StackLayout Spacing="0" Orientation="Horizontal" Margin="10,10,10,5">
+                            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Spacing="0">
+                                <Label Text="Donor Aadhar Number" TextColor="#333333" FontSize="16"  Margin="5,0,0,0" FontFamily="{StaticResource MediumFont}" HorizontalOptions="StartAndExpand" VerticalOptions="Center"  />
+                                <cc:LightEntry Placeholder="No Filter" TextColor="#333333" Keyboard="Text" MaxLength="10" FontFamily="{StaticResource RegularFont}" FontSize="14"  Text="{Binding VehicleNoFilterText}" ReturnType="Next" Margin="0,-2,0,5">
+                                    <Entry.Behaviors>
+                                        <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding FilterItems}">
+                                        </behaviors:EventToCommandBehavior>
+                                    </Entry.Behaviors>
+                                </cc:LightEntry>
+                                <BoxView HorizontalOptions="Fill" Margin="3,0,3,5" HeightRequest="1" Color="#333333"></BoxView>
+                            </StackLayout>
+                            <ImageButton CornerRadius="20" Command="{Binding ClearFilterCommand}" CommandParameter="aadhar" BackgroundColor="Transparent" Source="clear" Padding="10" HeightRequest="40" Margin="10,15,0,0" VerticalOptions="Center" HorizontalOptions="End">
+                                <ImageButton.Triggers>
+                                    <Trigger TargetType="ImageButton" Property="IsPressed" Value="True">
+                                        <Setter Property="BackgroundColor"  Value="LightGray" />
+                                    </Trigger>
+                                </ImageButton.Triggers>
+                            </ImageButton>
+                        </StackLayout>
+
+                        <!--Donor Blood Group-->
+                        <StackLayout Margin="10,10,10,5" Spacing="0">
+                            <Label Text="Donor Blood Group" TextColor="#333333" FontSize="16" FontFamily="{StaticResource MediumFont}"  Margin="5,0,0,0" HorizontalOptions="StartAndExpand" VerticalOptions="Center"  />
+                            <StackLayout Orientation="Horizontal" >
+                                <StackLayout Margin="0,5,0,0" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding SelectListItem}" CommandParameter="vehicleType" />
+                                        </StackLayout.GestureRecognizers>
+                                        <Label Text="{Binding DonorStateFilterText}"  FontFamily="{StaticResource RegularFont}" FontSize="14" TextColor="#333333" Margin="5,0,0,0" HorizontalOptions="StartAndExpand" VerticalOptions="Center"  />
+                                        <Image Source="down_arrow" HeightRequest="8" Margin="0,0,5,0" VerticalOptions="Center" HorizontalOptions="EndAndExpand" />
+                                    </StackLayout>
+                                    <BoxView HorizontalOptions="Fill" Margin="3,0,3,0" HeightRequest="1" Color="#333333"></BoxView>
+                                </StackLayout>
+                                <ImageButton CornerRadius="20" Command="{Binding ClearFilterCommand}" CommandParameter="bloodgroup" BackgroundColor="Transparent" Source="clear" Padding="10" HeightRequest="40" Margin="5,0,0,0" VerticalOptions="Center" HorizontalOptions="End">
+                                    <ImageButton.Triggers>
+                                        <Trigger TargetType="ImageButton" Property="IsPressed" Value="True">
+                                            <Setter Property="BackgroundColor"  Value="LightYellow" />
+                                        </Trigger>
+                                    </ImageButton.Triggers>
+                                </ImageButton>
+                            </StackLayout>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <Button BackgroundColor="#333333" Margin="10,20,10,30" HeightRequest="50" CornerRadius="10" CommandParameter="close" Command="{Binding SubmitCommand}"  HorizontalOptions="FillAndExpand" VerticalOptions="Start" Text="Close" TextColor="#FDDA8A" FontSize="14" FontFamily="{StaticResource RegularFont}" />
+                            <Button BackgroundColor="#333333" Margin="10,20,10,30" HeightRequest="50" CornerRadius="10" CommandParameter="clear" Command="{Binding SubmitCommand}"  HorizontalOptions="FillAndExpand" VerticalOptions="Start" Text="Clear" TextColor="#FDDA8A" FontSize="14" FontFamily="{StaticResource RegularFont}" />
+                        </StackLayout>
+                    </StackLayout>
+                </ScrollView>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</d:MvxContentPage>

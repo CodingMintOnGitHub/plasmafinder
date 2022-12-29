@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<d:MvxContentPage
+    xmlns:d="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms" 
+    x:TypeArguments="viewModels:AddBloodViewModel"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cc="clr-namespace:PlasmaFinder.Controls"
+    xmlns:local="clr-namespace:PlasmaFinder.Views"
+    xmlns:behaviors="clr-namespace:PlasmaFinder.Behaviours"
+    xmlns:viewModels="clr-namespace:PlasmaFinder.ViewModels"
+    x:Class="PlasmaFinder.Views.AddBlood"
+    NavigationPage.HasNavigationBar="false">
+    <ContentPage.Content>
+        <Grid HorizontalOptions="FillAndExpand" ColumnSpacing="0" RowSpacing="0" BackgroundColor="Black" VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Image Source="background.png" Margin="0" Aspect="Fill" Grid.Column="0" Grid.Row="0" />
+            <ScrollView Grid.Column="0" Grid.Row="0">
+            <StackLayout BackgroundColor="#FDDA8A"  Padding="0,30,0,0" >
+                <Image Source="plasma_prev_ui" HeightRequest="140" Margin="10,0,0,0" Aspect="AspectFit" />
+
+                <Label Text="Blood Donation Details" HorizontalTextAlignment="Center" TextColor="#333333" FontSize="28" FontAttributes="Bold" FontFamily="{StaticResource MediumFont}" />
+
+                <Label  Text="Name" TextColor="#333333"  FontFamily="{StaticResource RegularFont}" FontSize="16"  Margin="50,20,50,0"/>
+                <cc:LightEntry Placeholder="ex: John Doe" Text="{Binding Name}" TextColor="#333333" Keyboard="Text" FontFamily="{StaticResource RegularFont}" FontSize="14" ReturnType="Next" Margin="50,-15,50,0"/>
+                <BoxView HorizontalOptions="Fill" Margin="50,0,50,0" HeightRequest="1" Color="#333333"></BoxView>
+
+                    <Label  Text="Address Line" TextColor="#333333"  FontFamily="{StaticResource RegularFont}" FontSize="16"  Margin="50,20,50,0"/>
+                    <cc:LightEntry Placeholder="ex: 12-D Frankie's Inn. Chowk" Text="{Binding AddressLine1}" TextColor="#333333" Keyboard="Text" FontFamily="{StaticResource RegularFont}" FontSize="14" ReturnType="Next" Margin="50,-15,50,0"/>
+                    <BoxView HorizontalOptions="Fill" Margin="50,0,50,0" HeightRequest="1" Color="#333333"></BoxView>
+
+                    <Label  Text="Pincode" TextColor="#333333"  FontFamily="{StaticResource RegularFont}" FontSize="16"  Margin="50,20,50,0"/>
+                    <cc:LightEntry Placeholder="ex: 226001" TextColor="#333333"  Text="{Binding Pincode}" Keyboard="Numeric" MaxLength="6" FontFamily="{StaticResource RegularFont}" FontSize="14" ReturnType="Next" Margin="50,-15,50,0"/>
+                    <BoxView HorizontalOptions="Fill" Margin="50,0,50,0" HeightRequest="1" Color="#333333"></BoxView>
+
+                    <Label  Text="State" TextColor="#333333"  FontFamily="{StaticResource RegularFont}" FontSize="16"  Margin="50,20,50,0"/>
+                    <Label TextColor="#333333" Text="{Binding StateText}" FontFamily="{StaticResource RegularFont}" FontSize="14" Margin="50,-5,50,0">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SelectStateText}" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <BoxView HorizontalOptions="Fill" Margin="50,0,50,0" HeightRequest="1" Color="#333333"></BoxView>
+
+                    <Label  Text="City" TextColor="#333333"  FontFamily="{StaticResource RegularFont}" FontSize="16"  Margin="50,20,50,0"/>
+                    <Label TextColor="#333333" Text="{Binding CityText}" FontFamily="{StaticResource RegularFont}" FontSize="14" Margin="50,-5,50,0">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SelectCityText}" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <BoxView HorizontalOptions="Fill" Margin="50,0,50,0" HeightRequest="1" Color="#333333"></BoxView>
+
+                    <Label  Text="Aadhar Number" TextColor="#333333"  FontFamily="{StaticResource RegularFont}" FontSize="16"  Margin="50,20,50,0"/>
+                    <cc:LightEntry Placeholder="ex: 2904-0000-0000"  Text="{Binding AadharNumber}" TextColor="#333333" Keyboard="Text" MaxLength="12" FontFamily="{StaticResource RegularFont}" FontSize="14" ReturnType="Next" Margin="50,-15,50,0"/>
+                    <BoxView HorizontalOptions="Fill" Margin="50,0,50,0" HeightRequest="1" Color="#333333"></BoxView>
+
+                    <Label  Text="Select Gender" TextColor="#333333"  FontFamily="{StaticResource RegularFont}" FontSize="16"  Margin="50,20,50,0"/>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label  Text="Male:" TextColor="#333333"  FontFamily="{StaticResource RegularFont}" HorizontalOptions="Fill" HorizontalTextAlignment="End" FontSize="14"  Margin="55,5,0,0"/>
+                        <CheckBox IsChecked="{Binding IsMaleSelected}" Margin="-7,0,0,0">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal">
+                                        <VisualState.Setters>
+                                            <Setter Property="Color"
+                                                Value="#333333" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+
+                                    <VisualState x:Name="IsChecked">
+                                        <VisualState.Setters>
+                                            <Setter Property="Color"
+                                                Value="#333333" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                        </CheckBox>
+                        <Label  Text="Female:" TextColor="#333333" FontFamily="{StaticResource RegularFont}" HorizontalOptions="Fill" HorizontalTextAlignment="End" FontSize="14"  Margin="55,5,0,0"/>
+                        <CheckBox IsChecked="{Binding IsFeMaleSelected}" Margin="-7,0,0,0">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal">
+                                        <VisualState.Setters>
+                                            <Setter Property="Color"
+                                                Value="#333333" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+
+                                    <VisualState x:Name="IsChecked">
+                                        <VisualState.Setters>
+                                            <Setter Property="Color"
+                                                Value="#333333" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                        </CheckBox>
+                    </StackLayout>
+
+                    <Label  Text="Blood Group" TextColor="#333333"  FontFamily="{StaticResource RegularFont}" FontSize="16"  Margin="50,20,50,0"/>
+                    <Label TextColor="#333333" Text="{Binding BloodGroupText}" FontFamily="{StaticResource RegularFont}" FontSize="14" Margin="50,-5,50,0">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SelectBloodGroup}" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <BoxView HorizontalOptions="Fill" Margin="50,0,50,0" HeightRequest="1" Color="#333333"></BoxView>
+
+
+
+                    <Button BackgroundColor="#333333" Margin="30,40,30,30" HeightRequest="70" CornerRadius="10" Command="{Binding SubmitCommand}"  HorizontalOptions="FillAndExpand" VerticalOptions="Start" Text="Submit" TextColor="#FDDA8A" FontSize="22" FontFamily="{StaticResource RegularFont}" />
+
+            </StackLayout>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+</d:MvxContentPage>
