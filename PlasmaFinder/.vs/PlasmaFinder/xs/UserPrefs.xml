@@ -1,0 +1,42 @@
+﻿<Properties StartupConfiguration="{6700BCAE-90BF-4206-88BE-D22E53AB9BF8}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="PlasmaFinder/PlasmaFinder/ViewModels/SelectListItemViewModel.cs">
+    <Files>
+      <File FileName="PlasmaFinder/PlasmaFinder/Constants/ApiConstants.cs" Line="1" Column="1" />
+      <File FileName="PlasmaFinder/PlasmaFinder/ViewModels/AddBloodViewModel.cs" Line="1" Column="1" />
+      <File FileName="PlasmaFinder/PlasmaFinder/ViewModels/AddClothesViewModel.cs" Line="1" Column="1" />
+      <File FileName="PlasmaFinder/PlasmaFinder/ViewModels/AddFoodViewModel.cs" Line="241" Column="51" />
+      <File FileName="PlasmaFinder/PlasmaFinder/ViewModels/AddOxygenViewModel.cs" Line="1" Column="1" />
+      <File FileName="PlasmaFinder/PlasmaFinder/ViewModels/AddPlasmaViewModel.cs" Line="1" Column="1" />
+      <File FileName="PlasmaFinder/PlasmaFinder/ViewModels/ClothesDonationListViewModel.cs" Line="1" Column="1" />
+      <File FileName="PlasmaFinder/PlasmaFinder/ViewModels/FoodDonationListViewModel.cs" Line="1" Column="1" />
+      <File FileName="PlasmaFinder/PlasmaFinder/ViewModels/LoginViewModel.cs" Line="1" Column="1" />
+      <File FileName="PlasmaFinder/PlasmaFinder/ViewModels/OxygenDonationListViewModel.cs" Line="1" Column="1" />
+      <File FileName="PlasmaFinder/PlasmaFinder/ViewModels/PlasmaDonationListViewModel.cs" Line="1" Column="1" />
+      <File FileName="PlasmaFinder/PlasmaFinder/ViewModels/RegisterViewModel.cs" Line="1" Column="1" />
+      <File FileName="PlasmaFinder/PlasmaFinder/ViewModels/SearchItemViewModel.cs" Line="1" Column="1" />
+      <File FileName="PlasmaFinder/PlasmaFinder/ViewModels/SelectListItemViewModel.cs" Line="1" Column="1" />
+      <File FileName="PlasmaFinder/PlasmaFinder/ViewModels/VerifyOTPViewModel.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="PlasmaFinder" expanded="True">
+            <Node name="PlasmaFinder" expanded="True">
+              <Node name="Constants" expanded="True" />
+              <Node name="ViewModels" expanded="True">
+                <Node name="SelectListItemViewModel.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.PlasmaFinder.Android PreferredExecutionTarget="Android.Pixel_3a_API_33_arm64-v8a" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

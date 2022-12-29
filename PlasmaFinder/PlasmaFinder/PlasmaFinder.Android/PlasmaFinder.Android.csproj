@@ -16,7 +16,6 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidUseAapt2>true</AndroidUseAapt2>
@@ -105,7 +104,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PlasmaFinder\PlasmaFinder.csproj">
-      <Project>{2BA8B4A4-C3F2-4D89-82E2-6254096766B6}</Project>
+      <Project>{B9AFE51E-9C1F-4ED0-99A3-8FD6ECBB30A3}</Project>
       <Name>PlasmaFinder</Name>
     </ProjectReference>
   </ItemGroup>

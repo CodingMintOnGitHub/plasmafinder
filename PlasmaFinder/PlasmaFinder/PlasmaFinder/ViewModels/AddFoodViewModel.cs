@@ -213,43 +213,43 @@ namespace PlasmaFinder.ViewModels
         public IMvxAsyncCommand<string> SubmitCommand => new MvxAsyncCommand<string>(SubmitCommand_Handler);
         private async Task SubmitCommand_Handler(string param)
         {
-            if (!IsModelValid())
-            {
-                return;
-            }
+            //if (!IsModelValid())
+            //{
+            //    return;
+            //}
 
-            var submit = new SubmitResource()
-            {
-                Name = this.Name,
-                CovidRecoveryDate = default,
-                Description = string.Empty,
-                ExistingResourceUserId = null,
-                IsChargeble = false,
-                IsDifferentUser = true,
-                IsNewResourceUser = false,
-                IsRecoveryReport = IsDischargeReportPresent,
-                IsVerified = true,
-                RecoveryDate = default,
-                Price = 0,
-                Type = (int)Resource_Type.Food, //food
-                ResourceUser = new ResourceUser()
-                {
-                    AadhaarNumber = default,
-                    Address = AddressLine1,
-                    BirthDate = Dob,
-                    BloodGroup = 0,
-                    CityId = Convert.ToInt32(CityValue),
-                    CovidNegative = IsTestNegative,
-                    DateOfRecovery = default,
-                    DischargeReport = IsDischargeReportPresent,
-                    Gender = IsMaleSelected ? (int)Gender_Type.Male : (int)Gender_Type.Female,
-                    LastName = string.Empty,
-                    Name = Name,
-                    Picture = default,
-                    Pincode = Pincode,
-                    StateId = Convert.ToInt32(StateValue),
-                }
-            };
+            //var submit = new SubmitResource()
+            //{
+            //    Name = this.Name,
+            //    CovidRecoveryDate = default,
+            //    Description = string.Empty,
+            //    ExistingResourceUserId = null,
+            //    IsChargeble = false,
+            //    IsDifferentUser = true,
+            //    IsNewResourceUser = false,
+            //    IsRecoveryReport = IsDischargeReportPresent,
+            //    IsVerified = true,
+            //    RecoveryDate = default,
+            //    Price = 0,
+            //    Type = (int)Resource_Type.Food, //food
+            //    ResourceUser = new ResourceUser()
+            //    {
+            //        AadhaarNumber = default,
+            //        Address = AddressLine1,
+            //        BirthDate = Dob,
+            //        BloodGroup = 0,
+            //        CityId = Convert.ToInt32(CityValue),
+            //        CovidNegative = IsTestNegative,
+            //        DateOfRecovery = default,
+            //        DischargeReport = IsDischargeReportPresent,
+            //        Gender = IsMaleSelected ? (int)Gender_Type.Male : (int)Gender_Type.Female,
+            //        LastName = string.Empty,
+            //        Name = Name,
+            //        Picture = default,
+            //        Pincode = Pincode,
+            //        StateId = Convert.ToInt32(StateValue),
+            //    }
+            //};
 
 
             // await _mvxNavigationService.Navigate<AddBloodViewModel>();

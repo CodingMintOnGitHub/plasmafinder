@@ -1,0 +1,149 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/shekherkhare/Projects/pfinder/PlasmaFinder/PlasmaFinder/PlasmaFinder.Android/PlasmaFinder.Android.csproj": {}
+  },
+  "projects": {
+    "/Users/shekherkhare/Projects/pfinder/PlasmaFinder/PlasmaFinder/PlasmaFinder.Android/PlasmaFinder.Android.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/shekherkhare/Projects/pfinder/PlasmaFinder/PlasmaFinder/PlasmaFinder.Android/PlasmaFinder.Android.csproj",
+        "projectName": "PlasmaFinder.Android",
+        "projectPath": "/Users/shekherkhare/Projects/pfinder/PlasmaFinder/PlasmaFinder/PlasmaFinder.Android/PlasmaFinder.Android.csproj",
+        "packagesPath": "/Users/shekherkhare/.nuget/packages/",
+        "outputPath": "/Users/shekherkhare/Projects/pfinder/PlasmaFinder/PlasmaFinder/PlasmaFinder.Android/obj/",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "configFilePaths": [
+          "/Users/shekherkhare/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "monoandroid90"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {},
+          "https://tylertech.jfrog.io/artifactory/api/nuget/v3/nuget": {}
+        },
+        "frameworks": {
+          "monoandroid90": {
+            "projectReferences": {
+              "/Users/shekherkhare/Projects/pfinder/PlasmaFinder/PlasmaFinder/PlasmaFinder/PlasmaFinder.csproj": {
+                "projectPath": "/Users/shekherkhare/Projects/pfinder/PlasmaFinder/PlasmaFinder/PlasmaFinder/PlasmaFinder.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "monoandroid90": {
+          "dependencies": {
+            "MvvmCross": {
+              "target": "Package",
+              "version": "[6.4.2, )"
+            },
+            "MvvmCross.Forms": {
+              "target": "Package",
+              "version": "[6.4.2, )"
+            },
+            "Xamarin.Essentials": {
+              "target": "Package",
+              "version": "[1.5.3.2, )"
+            },
+            "Xamarin.Forms": {
+              "target": "Package",
+              "version": "[4.6.0.1141, )"
+            }
+          }
+        }
+      }
+    },
+    "/Users/shekherkhare/Projects/pfinder/PlasmaFinder/PlasmaFinder/PlasmaFinder/PlasmaFinder.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/shekherkhare/Projects/pfinder/PlasmaFinder/PlasmaFinder/PlasmaFinder/PlasmaFinder.csproj",
+        "projectName": "PlasmaFinder",
+        "projectPath": "/Users/shekherkhare/Projects/pfinder/PlasmaFinder/PlasmaFinder/PlasmaFinder/PlasmaFinder.csproj",
+        "packagesPath": "/Users/shekherkhare/.nuget/packages/",
+        "outputPath": "/Users/shekherkhare/Projects/pfinder/PlasmaFinder/PlasmaFinder/PlasmaFinder/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/shekherkhare/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {},
+          "https://tylertech.jfrog.io/artifactory/api/nuget/v3/nuget": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "MvvmCross": {
+              "target": "Package",
+              "version": "[6.4.2, )"
+            },
+            "MvvmCross.Forms": {
+              "target": "Package",
+              "version": "[6.4.2, )"
+            },
+            "MvvmCross.Plugin.Messenger": {
+              "target": "Package",
+              "version": "[6.4.2, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            },
+            "Polly": {
+              "target": "Package",
+              "version": "[7.2.1, )"
+            },
+            "Xamarin.Essentials": {
+              "target": "Package",
+              "version": "[1.5.3.2, )"
+            },
+            "Xamarin.Forms": {
+              "target": "Package",
+              "version": "[4.6.0.1141, )"
+            },
+            "sqlite-net-pcl": {
+              "target": "Package",
+              "version": "[1.6.292, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/x64/sdk/3.1.425/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
